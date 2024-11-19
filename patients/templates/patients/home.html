@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1 class="display-4">Fizyoterapi Takip Sistemine Hoş Geldiniz!</h1>
+    <p class="lead">Lütfen aşağıdaki işlemlerden birini seçin:</p>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Hastalar</h5>
+                    <p class="card-text">Hastalarınızı görüntüleyin ve yönetin.</p>
+                    <a href="/patients/" class="btn btn-primary">Hastalar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Randevular</h5>
+                    <p class="card-text">Randevularınızı görüntüleyin ve düzenleyin.</p>
+                    <a href="/appointments/" class="btn btn-primary">Randevular</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Takvim</h5>
+                    <p class="card-text">Tüm randevularınızı takvim üzerinde görüntüleyin.</p>
+                    <a href="/appointments/calendar/" class="btn btn-primary">Takvim</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

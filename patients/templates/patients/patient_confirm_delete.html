@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasta Sil</title>
+</head>
+<body>
+    <h1>{{ patient.first_name }} {{ patient.last_name }} hastasını silmek istediğinize emin misiniz?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Evet, Sil</button>
+    </form>
+    <a href="{% url 'patient_list' %}">Hayır, Geri Dön</a>
+</body>
+</html>

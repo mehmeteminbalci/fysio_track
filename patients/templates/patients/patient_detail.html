@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ patient.first_name }} {{ patient.last_name }}</title>
+</head>
+<body>
+    <h1>{{ patient.first_name }} {{ patient.last_name }}</h1>
+    <p>Doğum Tarihi: {{ patient.date_of_birth }}</p>
+    <p>Telefon: {{ patient.phone }}</p>
+    <p>E-posta: {{ patient.email }}</p>
+    <p>Adres: {{ patient.address }}</p>
+    <p>Tıbbi Geçmiş: {{ patient.medical_history }}</p>
+    <a href="{% url 'patient_update' patient.pk %}">Düzenle</a>
+    <form method="POST" action="{% url 'patient_delete' patient.pk %}">
+        {% csrf_token %}
+        <button type="submit">Sil</button>
+    </form>
+</body>
+</html>

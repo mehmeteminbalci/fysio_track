@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Randevu Takvimi</h1>
+    <div class="card shadow">
+        <div class="card-body">
+            <div id="calendar" class="border p-3"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth', // Varsayılan görünüm
+            themeSystem: 'bootstrap5',  // Bootstrap ile uyumlu tema
+            headerToolbar: {
+                left: 'prev,next today', // Sol kısım: önceki, sonraki, bugüne dön
+                center: 'title',        // Orta kısım: ay ismi ve yıl
+                right: 'dayGridMonth,timeGridWeek,timeGridDay' // Sağ kısım: Görünüm türleri
+            },
+            events: '/appointments/api/', // Event verileri
+            locale: 'tr', // Türkçe dil desteği
+            buttonText: { // Düğmelerin Türkçe görünümü
+                today: 'Bugün',
+                month: 'Ay',
+                week: 'Hafta',
+                day: 'Gün'
+            },
+            dateClick: function (info) {
+                // Tarihe tıklanınca yönlendirme
+                window.location.href = `/appointments/create/?date=${info.dateStr}`;
+            },
+            eventClick: function (info) {
+                // Event'e tıklanınca detay gösterme
+                alert(`Randevu: ${info.event.title}\nTarih: ${info.event.start.toLocaleDateString()}`);
+            }
+        });
+
+        calendar.render();
+    });
+</script>
+{% endblock %}

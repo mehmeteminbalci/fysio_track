@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Randevu Sil</title>
+</head>
+<body>
+    <h1>{{ appointment.patient }} için randevuyu silmek istediğinize emin misiniz?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Evet, Sil</button>
+    </form>
+    <a href="{% url 'appointment_list' %}">Hayır, Geri Dön</a>
+</body>
+</html>
